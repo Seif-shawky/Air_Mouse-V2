@@ -23,3 +23,16 @@ On the iPhone, allow Local Network and Bluetooth prompts if iOS shows them.
 - Drag on the iPhone screen to move the Mac pointer.
 - Tap the iPhone screen to send a left mouse click. The click-down message is encoded as `start`.
 - Press the iPhone volume buttons to send volume up/down changes to the Mac.
+
+## run
+
+cd "/Users/seifshawky/seif_projects/Mouse_proj V2"
+
+xcodebuild -project MousePhone.xcodeproj -scheme MacMouseHost -configuration Debug -destination platform=macOS build
+open ~/Library/Developer/Xcode/DerivedData/MousePhone-bnhfppueftdngacizcwipptfoory/Build/Products/Debug/MacMouseHost.app
+
+xcodebuild -allowProvisioningUpdates -project MousePhone.xcodeproj -scheme PhoneMousePad -configuration Debug -destination platform=iOS,id=00008020-000845E90E06002E build
+
+xcrun devicectl device install app --device C429EB5B-04EC-5059-B127-F41237D6A21B ~/Library/Developer/Xcode/DerivedData/MousePhone-bnhfppueftdngacizcwipptfoory/Build/Products/Debug-iphoneos/PhoneMousePad.app
+
+xcrun devicectl device process launch --device C429EB5B-04EC-5059-B127-F41237D6A21B com.mousepad.phone.client
