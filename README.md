@@ -26,8 +26,6 @@ On the iPhone, allow Local Network and Bluetooth prompts if iOS shows them.
 
 ## run
 
-cd "/Users/seifshawky/seif_projects/Mouse_proj V2"
-
 xcodebuild -project MousePhone.xcodeproj -scheme MacMouseHost -configuration Debug -destination platform=macOS build
 open ~/Library/Developer/Xcode/DerivedData/MousePhone-bnhfppueftdngacizcwipptfoory/Build/Products/Debug/MacMouseHost.app
 
